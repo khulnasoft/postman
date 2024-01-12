@@ -1,0 +1,22 @@
+name: Run Newman Tests
+
+on:
+  push:
+    branches:
+      - 'another-branch' # For now we don't use this CI
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Install Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14' # Set the desired Node.js version here
+
+    - name: Install Newman
+      run: npm install -g newman
